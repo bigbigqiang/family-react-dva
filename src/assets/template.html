@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>动画绘本馆</title>
+    <link rel="stylesheet" href="https://familyoms.ellabook.cn/h5/topicTemplate.css">
+</head>
+
+<body>
+    <div id="Container">
+        #TitleHolder #MetaHolder #CoverHolder #ContentHolder #BookListHolder
+    </div>
+    <script>
+        window.onload = function () {
+            var books = document.getElementsByClassName('book');
+            var userType = getParameter('user_type').toLowerCase() || 'parent';
+            var targetDetail = '';
+
+            switch (userType) {
+                case 'parent':
+                    targetDetail = 'parent.book.detail';
+                    break;
+                case 'teacher':
+                    targetDetail = 'teacher.book.detail';
+                    break;
+                case 'headmaster':
+                    targetDetail = 'teacher.book.detail';
+                    break;
+                default:
+                    targetDetail = 'parent.book.detail';
+            }
+
+            for (var index = 0; index < books.length; index++) {
+                (function (index) {
+                    var element = books[index];
+                    console.log(element)
+                    element.href = element.href.replace('#LinkHolder', targetDetail);
+                    element.onclick = function (event) {
+                        console.log(element.href)
+                        var u = navigator.userAgent;
+                        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+                        if (isAndroid) {
+                            event.preventDefault();
+                            try {
+                                window.WebView.routeToTargetPage(element.href);
+                            } catch (err) {
+                                window.location.href = element.href;
+                            }
+                        } else {
+                            window.location.href = element.href;
+                        }
+                    }
+                })(index)
+            }
+
+            /**
+             * @param {*} name
+             */
+            function getParameter(name) {
+                var url = document.location.href;
+                var start = url.indexOf("?") + 1;
+                if (start == 0) {
+                    return "";
+                }
+                var value = "";
+                var queryString = url.substring(start);
+                var paraNames = queryString.split("&");
+                if (name) {
+                    for (var i = 0; i < paraNames.length; i++) {
+                        if (name == getParameterName(paraNames[i])) {
+                            value = getParameterValue(paraNames[i])
+                        }
+                    }
+                    return value;
+                } else {
+                    var all = {};
+                    for (var i = 0; i < paraNames.length; i++) {
+                        if (paraNames[i].indexOf('=') != -1 && paraNames[i].indexOf('=') != 0) {
+                            var value = getParameterValue(paraNames[i]);
+                            var name = getParameterName(paraNames[i]);
+                            all[name] = value;
+                        }
+                    }
+                    return all;
+                }
+            }
+
+            /**
+             *
+             * @param {*} str
+             */
+            function getParameterName(str) {
+                var start = str.indexOf("=");
+                if (start == -1) {
+                    return str;
+                }
+                return str.substring(0, start);
+            }
+
+            /**
+             *
+             * @param {*} str
+             */
+            function getParameterValue(str) {
+                var start = str.indexOf("=");
+                if (start == -1) {
+                    return "";
+                }
+                return str.substring(start + 1);
+            }
+        }
+    </script>
+</body>
+
+</html>

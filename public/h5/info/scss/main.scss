@@ -1,0 +1,63 @@
+@import './init.scss';
+@import './font.scss';
+
+html{
+    background: #fff;
+}
+body{
+    background: #fff;
+}
+h3{
+    margin: 14px 0 5px -7px;
+}
+ul{
+    padding: 0 0 0 18px;
+    margin: 0;
+}
+.content{
+    // width:calc(100% - 48px);
+    // height:calc(100% - 48px);
+    padding: 12px 24px 124px;
+    line-height: 1.5;
+    b{
+        display: inline-block;
+        color: #333;
+        padding: 10px 0 5px;
+    }
+    p{
+        margin:0 0 10px;
+        color:#707575;
+    }
+    ul{
+        color:#707575;
+    }
+}
+.icon-content{
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+}
+.icon-content p{
+    text-align: center;
+}
+img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+#weChat{
+    font-size: 12px;
+    align-items: center;
+    position: relative;
+    .weChatText{
+        position: absolute;
+        padding: 0 0 0 106px;
+        top: 18px;
+    }
+}
+
+#weChat img{
+    margin-left: 0;
+    margin-right: 20px;
+}

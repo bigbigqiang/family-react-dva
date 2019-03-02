@@ -1,0 +1,129 @@
+.table{
+    :global{
+        .ant-fullcalendar-date{
+            background: #fff;
+            height: 150px;
+            margin: 0px;
+            padding:4px 2px 4px 8px;
+        }
+        .ant-fullcalendar-last-month-cell,.ant-fullcalendar-next-month-btn-day{
+            opacity:0;
+        }
+        .ant-radio-group{
+            display: none;
+        }
+        .ant-fullcalendar-header .ant-select{
+            margin: 0 8px 0 0;
+        }
+        .ant-fullcalendar-calendar-body{
+            padding:0;
+        }
+        /* For demo */
+        .ant-carousel .slick-slide {
+            text-align: center;
+            height: 160px;
+            line-height: 160px;
+            background: #364d79;
+            overflow: hidden;
+        }
+
+        .ant-carousel .slick-slide h3 {
+            color: #fff;
+        }
+        .ant-fullcalendar-header{
+            display: none;
+        }
+        .ant-fullcalendar-content{
+            height: 110px;
+            overflow:visible;
+        }
+        .ant-fullcalendar-cell{
+            overflow: scroll;
+            border: 1px solid @primary-color;
+        }
+        .ant-fullcalendar-last-month-cell button{
+            display: none;
+        }
+        .ant-fullcalendar-column-header{
+            padding:0;
+            .ant-fullcalendar-column-header-inner{
+                text-align: center;
+                line-height: 36px;
+                color:@primary-color;
+            }
+        }
+    }
+    .cell{
+        text-align: center;
+        padding: 5px;
+    }
+}
+.checkbox{
+    margin:3px;
+}
+.rowspan{
+    margin:5px;
+    text-align: justify;
+}
+.rowspan:after {
+    content: " ";
+    display: inline-block;
+    width: 100%;
+}
+.btnSpan{
+    cursor: pointer;
+}
+.search_line{
+    padding: 12px;
+    background: #fafafa;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    &>div{
+        // margin-right:16px;
+        float:left;
+    }
+}
+.highlight {
+  color: #f50;
+}
+.custom_filter_dropdown {
+    padding: 8px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+}
+.bookNameDiv{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+}
+.delBtn{
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -11px;
+    top: 5px;
+    color:#fff;
+    background: rgb(27, 153, 153);
+    font: 12px/10px 'airal';
+    &:hover{
+        background: rgb(39, 206, 206);
+    }
+}
+.selBookBtn{
+    margin: 12px 0;
+}
+.bookdiv{
+    height: 38px;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+.conditionTitle{
+    text-align: right;
+    line-height: 30px;
+}
+.i_g_r{
+    margin: 3px 0;
+}

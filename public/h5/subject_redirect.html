@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>动画绘本馆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../ipConfig.js"></script>
+</head>
+
+<body>
+    <script>
+        (function () {
+            var topicCode = getParameter('topicCode')
+            var user_type = getParameter('user_type')
+            var xhr;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else {
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+
+            var params = "method=ella.home.getTopicInfo&content=" + JSON.stringify({
+                topicCode: topicCode
+            })
+
+            xhr.open('post', window.ellaHomeApi + '/rest/api/service', false);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            //发送请求
+            xhr.send(params);
+            //同步接受响应
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    var result = JSON.parse(xhr.responseText)
+                    console.log()
+                    window.location.href = result.data.targetPage + "?user_type=" + user_type
+                }
+            }
+
+            /**
+             *
+             * @param {*} name
+             */
+            function getParameter(name) {
+                var url = document.location.href;
+                var start = url.indexOf("?") + 1;
+                if (start == 0) {
+                    return "";
+                }
+                var value = "";
+                var queryString = url.substring(start);
+                var paraNames = queryString.split("&");
+                if (name) {
+                    for (var i = 0; i < paraNames.length; i++) {
+                        if (name == getParameterName(paraNames[i])) {
+                            value = getParameterValue(paraNames[i])
+                        }
+                    }
+                    return value;
+                } else {
+                    var all = {};
+                    for (var i = 0; i < paraNames.length; i++) {
+                        if (paraNames[i].indexOf('=') != -1 && paraNames[i].indexOf('=') != 0) {
+                            var value = getParameterValue(paraNames[i]);
+                            var name = getParameterName(paraNames[i]);
+                            all[name] = value;
+                        }
+                    }
+                    return all;
+                }
+            }
+
+            function getParameterName(str) {
+                var start = str.indexOf("=");
+                if (start == -1) {
+                    return str;
+                }
+                return str.substring(0, start);
+            }
+
+            function getParameterValue(str) {
+                var start = str.indexOf("=");
+                if (start == -1) {
+                    return "";
+                }
+                return str.substring(start + 1);
+            }
+
+        })()
+    </script>
+</body>
+
+</html>

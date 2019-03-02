@@ -1,0 +1,42 @@
+
+*::-webkit-input-placeholder{
+    color:#c0cbcd;
+}
+*:-moz-placeholder {
+    color:#c0cbcd;
+}
+*::-moz-placeholder {
+    color:#c0cbcd;
+}
+*:-ms-input-placeholder {
+    color:#c0cbcd;
+}
+
+html{
+    background-color: #999;
+    overflow: scroll;
+    margin: 0 auto;
+}
+
+body{
+    margin: 0 auto;
+    padding: 0;
+    // overflow: hidden;
+    font:16px 'PingFangSC-Medium','Microsoft YaHei','Arial';
+}
+
+.clm{
+    &::before,&:before{
+        content:'';
+        display: block;
+        overflow: hidden;
+    }
+}
+
+.clf{
+    &::after,&:after{
+        content:'';
+        display: block;
+        clear:both;
+    }
+}

@@ -1,0 +1,52 @@
+@img_upload_height: 260px;
+
+.img_upload{
+    width:@img_upload_height*75/36;
+    height:@img_upload_height;
+    :global .ant-upload.ant-upload-select-picture-card{
+        width:@img_upload_height*75/36;
+        height:@img_upload_height;
+    }
+}
+.upload_left{
+    float:left;
+}
+.upload_right{
+    float:left;
+    width:300px;
+    margin:0 20px;
+}
+.aim_page{
+    width:100%;
+    input{
+        width:100%;
+    }
+    :global .ant-form-item-control-wrapper{
+        width:228px;
+    }
+}
+.addBookButton{
+    float: left;
+    font-size: 30px;
+    color: #38b8b7;
+    cursor: pointer;
+    position: relative;
+    left: 5px;
+    top: 4px;
+    &:hover{
+        color: #48c9c9;
+    }
+}
+.selected_book_name{
+    position: relative;
+    top: -37px;
+    width: 246px;
+    height: 24px;
+    display: block;
+    left: 2px;
+    overflow: hidden;
+}
+
+.preview_image{
+    max-width: 100%;
+}

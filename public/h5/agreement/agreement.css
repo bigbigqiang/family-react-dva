@@ -1,0 +1,42 @@
+
+html{
+
+    overflow: scroll;
+    margin: 0 auto;
+}
+
+body{
+    margin: 0 auto;
+    padding:28px;
+    font:14px 'PingFangSC-Regular','Microsoft YaHei','EPM','Arial';
+    color: #888888;
+    line-height: 28px;
+}
+
+
+.agreeTitle{
+    font-size: 16px;
+    color:#333333 ;
+    font-weight: bold;
+
+}
+.title{
+    font-size: 16px;
+    color:#333333 ;
+    font-weight: bold;
+    margin:20px auto;
+    display: flex;
+    align-items: center;
+
+
+}
+.cline{
+    width: 4px;
+    height: 16px;
+    background: #9febd7;
+    display: inline-block;
+    margin-right: 10px;
+}
+.yourth>view{
+    margin-top: 20px;
+}
